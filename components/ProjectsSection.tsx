@@ -162,7 +162,6 @@ const projects: Project[] = [
 export default function ProjectsSection() {
   const [expanded, setExpanded] = useState(false)
   const wrapRef = useRef<HTMLDivElement>(null)
-  const btnRef = useRef<HTMLButtonElement>(null)
   const [fullHeight, setFullHeight] = useState(2400)
 
   useEffect(() => {
@@ -173,8 +172,8 @@ export default function ProjectsSection() {
 
   const handleToggle = () => {
     if (expanded) {
-      btnRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
-      setTimeout(() => setExpanded(false), 300)
+      setExpanded(false)
+      document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     } else {
       setExpanded(true)
     }
@@ -211,7 +210,7 @@ export default function ProjectsSection() {
       </div>
 
       <div className="show-more-wrap">
-        <button ref={btnRef} className="btn-toggle" onClick={handleToggle}>
+        <button className="btn-toggle" onClick={handleToggle}>
           <span>{expanded ? 'SHOW LESS' : 'VIEW ALL PROJECTS'}</span>
         </button>
       </div>

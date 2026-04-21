@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 export default function ClientInit() {
   useEffect(() => {
     // ── CURSOR ──
+    if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) return
     const dot = document.getElementById('c-dot')
     const ring = document.getElementById('c-ring')
     if (dot && ring) {

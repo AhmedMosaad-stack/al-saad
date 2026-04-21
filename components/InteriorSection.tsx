@@ -54,7 +54,6 @@ const cards = [
 export default function InteriorSection() {
   const [expanded, setExpanded] = useState(false)
   const wrapRef = useRef<HTMLDivElement>(null)
-  const btnRef = useRef<HTMLButtonElement>(null)
   const [fullHeight, setFullHeight] = useState(800)
 
   useEffect(() => {
@@ -65,8 +64,8 @@ export default function InteriorSection() {
 
   const handleToggle = () => {
     if (expanded) {
-      btnRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
-      setTimeout(() => setExpanded(false), 300)
+      setExpanded(false)
+      document.getElementById('finishing')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     } else {
       setExpanded(true)
     }
@@ -123,7 +122,7 @@ export default function InteriorSection() {
       </div>
 
       <div className="show-more-wrap">
-        <button ref={btnRef} className="btn-toggle" onClick={handleToggle}>
+        <button className="btn-toggle" onClick={handleToggle}>
           <span>{expanded ? 'SHOW LESS' : 'VIEW ALL PHOTOS'}</span>
         </button>
       </div>
