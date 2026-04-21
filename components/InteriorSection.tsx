@@ -1,5 +1,5 @@
 'use client'
-import { useState, useRef, useEffect } from 'react'
+import InteriorGallery from '@/components/InteriorGallery'
 
 const cards = [
   {
@@ -52,25 +52,6 @@ const cards = [
 ]
 
 export default function InteriorSection() {
-  const [expanded, setExpanded] = useState(false)
-  const wrapRef = useRef<HTMLDivElement>(null)
-  const [fullHeight, setFullHeight] = useState(800)
-
-  useEffect(() => {
-    if (wrapRef.current) {
-      setFullHeight(wrapRef.current.scrollHeight)
-    }
-  }, [])
-
-  const handleToggle = () => {
-    if (expanded) {
-      setExpanded(false)
-      document.getElementById('finishing')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    } else {
-      setExpanded(true)
-    }
-  }
-
   return (
     <section id="finishing">
 
@@ -104,33 +85,7 @@ export default function InteriorSection() {
         ))}
       </div>
 
-      {/* Image gallery placeholder */}
-      <div className="rv" style={{ marginBottom: '16px' }}>
-        <p className="interior-gallery-lbl">Project Gallery · معرض الأعمال</p>
-      </div>
-
-      <div
-        ref={wrapRef}
-        className={`gallery-wrap${expanded ? '' : ' collapsed'}`}
-        style={expanded ? { maxHeight: fullHeight + 'px' } : undefined}
-      >
-        <div className="interior-gallery rv d1">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <div key={i} className="gallery-cell" />
-          ))}
-        </div>
-      </div>
-
-      <div className="show-more-wrap">
-        <button className="btn-toggle" onClick={handleToggle}>
-          <span>{expanded ? 'SHOW LESS' : 'VIEW ALL PHOTOS'}</span>
-        </button>
-      </div>
-
-      {/* CTA */}
-      <div className="interior-cta rv d2">
-        <a href="#contact" className="btn-toggle"><span>CONTACT US</span></a>
-      </div>
+      <InteriorGallery />
 
     </section>
   )

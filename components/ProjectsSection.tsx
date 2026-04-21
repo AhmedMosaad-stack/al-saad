@@ -1,3 +1,4 @@
+// GRID_REDESIGN_ACTIVE
 'use client'
 import { useState, useRef, useEffect } from 'react'
 
@@ -41,7 +42,7 @@ const projects: Project[] = [
     badge: 'Delivered · 2020', badgeClass: 'b-del', en: 'Zizinia City', ar: 'زيزينيا سيتي',
     loc: 'شارع الأمير حليم - زيزينيا · Alexandria', yr: '2020',
     desc: 'Compound · 3 buildings (A, B, C) · 3,005 m² · 95 units',
-    lic: 'Lic: م ذ - 11 - 41 - 0534 / حي شرق',
+    lic: 'Lic: م ذ - 11 - 41 - 0534 / حي شرق', lg: true,
   },
   {
     badge: 'Delivered · 2019', badgeClass: 'b-del', en: 'Fleming Towers A', ar: 'أبراج فلمنج A',
@@ -75,6 +76,7 @@ const projects: Project[] = [
     badge: 'Delivered · 2016', badgeClass: 'b-del', en: 'Bolkly High Class', ar: 'بولكلي هاي كلاس',
     loc: 'شارع أمير البحار - الرمل · Alexandria', yr: '2016',
     desc: '114 residential units + commercial spaces on Alexandria\'s iconic Corniche district.',
+    lg: true,
   },
   {
     badge: 'Delivered · 2015', badgeClass: 'b-del', en: 'Al-Eisawy House', ar: 'برج العيسوي هاوس',
@@ -103,12 +105,13 @@ const projects: Project[] = [
   {
     badge: 'Delivered · 2008–2012', badgeClass: 'b-del', en: 'Hadayek Al-Ahram', ar: 'حدائق الأهرام — 5 مبانٍ',
     loc: 'Gate 2 Khafra · Giza', yr: '2008 · 2009 · 2010 · 2011 · 2012',
-    desc: '5 residential buildings delivered consecutively over 5 years. Al-Saad\'s landmark Giza expansion.', delay: 'd2',
+    desc: '5 residential buildings delivered consecutively over 5 years. Al-Saad\'s landmark Giza expansion.', delay: 'd2', lg: true,
   },
   {
     badge: 'Delivered · 2007', badgeClass: 'b-del', en: 'Imperial Tower 1', ar: 'إمبريال تاور 1',
     loc: 'شارع السودان 57 - المهندسين · Cairo', yr: '2007',
     desc: 'Al-Saad\'s Cairo debut — luxury classical-style building in the heart of Mohandessin.',
+    lg: true,
   },
   {
     badge: 'Delivered · 2006', badgeClass: 'b-del', en: 'Friends Tower', ar: 'برج الأصدقاء',
@@ -156,6 +159,7 @@ const projects: Project[] = [
     badge: 'Delivered · 1995 · The First', badgeClass: 'b-del', en: 'Miami House 1', ar: 'برج ميامي هاوس 1',
     loc: 'ميامي · Alexandria', yr: '1995 — The Origin',
     desc: 'Where it all began. The inaugural Al-Saad project that started a 30-year legacy on Alexandria\'s coastline.',
+    lg: true,
   },
 ]
 
@@ -196,7 +200,6 @@ export default function ProjectsSection() {
         <div className="pgrid">
           {projects.map((p, i) => (
             <div key={i} className={`pcard rv${p.delay ? ' ' + p.delay : ''}${p.lg ? ' lg' : ''}`}>
-              <div className="pcard-ov"><span className="pcard-ov-txt">View Project</span></div>
               <span className={`badge ${p.badgeClass}`}>{p.badge}</span>
               <div className="p-en">{p.en}</div>
               <div className="p-ar">{p.ar}</div>

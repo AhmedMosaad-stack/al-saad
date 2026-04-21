@@ -181,14 +181,11 @@ body.hov #c-ring{width:46px;height:46px;opacity:.4}
 /* ── PROJECTS ── */
 #projects{background:#0D0D0D;padding:120px 64px}
 .proj-hdr{margin-bottom:56px}
-.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.pgrid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-flow:row dense;gap:2px}
 .pcard{background:var(--mid-gray);padding:30px;position:relative;overflow:hidden;transition:transform .4s ease,box-shadow .4s ease,background .4s ease;cursor:none}
 .pcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(.28);transform-origin:left;transition:transform .4s ease}
 .pcard:hover::before{transform:scaleX(1)}
 .pcard:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(201,168,76,.12);background:#1f1a0d}
-.pcard-ov{position:absolute;inset:0;background:rgba(8,8,8,.88);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s}
-.pcard:hover .pcard-ov{opacity:1}
-.pcard-ov-txt{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
 .pcard.lg{grid-column:span 2}
 .badge{display:inline-block;font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;padding:4px 10px;margin-bottom:14px}
 .b-prog{background:rgba(201,168,76,.08);color:var(--gold);border:1px solid rgba(201,168,76,.25);animation:bpulse 2s infinite}
@@ -204,7 +201,7 @@ body.hov #c-ring{width:46px;height:46px;opacity:.4}
 
 /* ── PROJECTS SHOW MORE WRAP ── */
 /* always-present ::after so opacity can transition in/out */
-.proj-wrap{position:relative;overflow:hidden;transition:max-height .75s ease}
+.proj-wrap{position:relative;overflow:hidden;padding-top:10px;transition:max-height .75s ease}
 .proj-wrap.collapsed{max-height:500px}
 .proj-wrap::after{
   content:'';position:absolute;bottom:0;left:0;right:0;
@@ -432,7 +429,7 @@ footer{background:#050505;border-top:1px solid #151515;padding:22px 64px;display
 .interior-cta{text-align:center}
 
 /* ── RESPONSIVE ── */
-@media(max-width:1100px){.sgrid{grid-template-columns:repeat(2,1fr)}.interior-sgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:1100px){.pgrid{grid-template-columns:repeat(2,1fr)}.sgrid{grid-template-columns:repeat(2,1fr)}.interior-sgrid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:900px){
   .sec,.sec#projects,.sec#upcoming,.sec#services,#contact,#finishing{padding:80px 28px}
   .logo-img-hero{width:210px}
