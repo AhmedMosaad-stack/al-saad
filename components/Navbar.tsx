@@ -15,9 +15,11 @@ export default function Navbar() {
         />
       </a>
       <ul className="nav-links">
-        <li><a href="#about">Legacy</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#finishing">Finishing</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#services">Vision</a></li>
+        <li><a href="#legacy">Legacy</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <button className="ham" id="ham" aria-label="Menu">

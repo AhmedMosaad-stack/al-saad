@@ -9,14 +9,15 @@ export default function AboutSection() {
           </div>
           <div className="about-txt rv d2">
             <p>
-              Al-Saad Construction was founded with a singular vision: to bring world-class
-              construction to Alexandria. From our first project in 1995 to our current work
-              in New Alamein City, we have never compromised on quality, timing, or beauty.
+              تأسست آل سعد بهدف واحد: تقديم أعلى معايير البناء والإنشاء في الإسكندرية ومصر.
+              من أول مشروع عام 1995 إلى أعمالنا الحالية في مدينة العلمين الجديدة ومراسي،
+              لم نتنازل قط عن الجودة أو الدقة أو الجمال.
             </p>
             <p>
-              Our work spans residential towers, luxury compounds, coastal developments, and
-              landmark buildings — always with the same obsessive attention to detail that
-              has made Al-Saad a name synonymous with trust and permanence.
+              إلى جانب الإنشاء، تقدم آل سعد خدمة تشطيب متكاملة من الألف إلى الياء —
+              معجون ودهانات، سيراميك ورخام فاخر، وتشطيب داخلي شامل بأيدي متخصصين.
+              فريق صيانة جاهز على مدار الساعة لأي إصلاح أو تعديل أو تطوير،
+              لأن التزامنا لا ينتهي عند تسليم المفتاح.
             </p>
           </div>
           <div className="about-cards">

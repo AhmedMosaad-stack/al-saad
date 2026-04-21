@@ -15,7 +15,7 @@ const timelineItems = [
 
 export default function TimelineSection() {
   return (
-    <section id="timeline">
+    <section id="legacy">
       <div className="tl-hdr rv">
         <div className="sec-lbl">30 Years of Excellence</div>
         <h2 className="sec-h2">A Legacy Written in Stone</h2>

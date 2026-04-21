@@ -1,3 +1,6 @@
+'use client'
+import { useState, useRef, useEffect } from 'react'
+
 const cards = [
   {
     title: 'تشطيب كامل للشقق',
@@ -49,8 +52,28 @@ const cards = [
 ]
 
 export default function InteriorSection() {
+  const [expanded, setExpanded] = useState(false)
+  const wrapRef = useRef<HTMLDivElement>(null)
+  const btnRef = useRef<HTMLButtonElement>(null)
+  const [fullHeight, setFullHeight] = useState(800)
+
+  useEffect(() => {
+    if (wrapRef.current) {
+      setFullHeight(wrapRef.current.scrollHeight)
+    }
+  }, [])
+
+  const handleToggle = () => {
+    if (expanded) {
+      btnRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      setTimeout(() => setExpanded(false), 300)
+    } else {
+      setExpanded(true)
+    }
+  }
+
   return (
-    <section id="interior">
+    <section id="finishing">
 
       {/* Section header */}
       <div className="rv" style={{ marginBottom: '56px' }}>
@@ -86,15 +109,28 @@ export default function InteriorSection() {
       <div className="rv" style={{ marginBottom: '16px' }}>
         <p className="interior-gallery-lbl">Project Gallery · معرض الأعمال</p>
       </div>
-      <div className="interior-gallery rv d1">
-        {Array.from({ length: 6 }).map((_, i) => (
-          <div key={i} className="gallery-cell" />
-        ))}
+
+      <div
+        ref={wrapRef}
+        className={`gallery-wrap${expanded ? '' : ' collapsed'}`}
+        style={expanded ? { maxHeight: fullHeight + 'px' } : undefined}
+      >
+        <div className="interior-gallery rv d1">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div key={i} className="gallery-cell" />
+          ))}
+        </div>
+      </div>
+
+      <div className="show-more-wrap">
+        <button ref={btnRef} className="btn-toggle" onClick={handleToggle}>
+          <span>{expanded ? 'SHOW LESS' : 'VIEW ALL PHOTOS'}</span>
+        </button>
       </div>
 
       {/* CTA */}
       <div className="interior-cta rv d2">
-        <a href="#contact" className="btn-fill">تواصل معنا اليوم ←</a>
+        <a href="#contact" className="btn-toggle"><span>CONTACT US</span></a>
       </div>
 
     </section>

@@ -1,3 +1,6 @@
+'use client'
+import { useState, useRef, useEffect } from 'react'
+
 type Project = {
   badge: string
   badgeClass: string
@@ -157,6 +160,26 @@ const projects: Project[] = [
 ]
 
 export default function ProjectsSection() {
+  const [expanded, setExpanded] = useState(false)
+  const wrapRef = useRef<HTMLDivElement>(null)
+  const btnRef = useRef<HTMLButtonElement>(null)
+  const [fullHeight, setFullHeight] = useState(2400)
+
+  useEffect(() => {
+    if (wrapRef.current) {
+      setFullHeight(wrapRef.current.scrollHeight)
+    }
+  }, [])
+
+  const handleToggle = () => {
+    if (expanded) {
+      btnRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      setTimeout(() => setExpanded(false), 300)
+    } else {
+      setExpanded(true)
+    }
+  }
+
   return (
     <section id="projects" className="sec">
       <div className="proj-hdr rv">
@@ -165,19 +188,32 @@ export default function ProjectsSection() {
         <p className="sec-ar">مشاريعنا تتحدث عن نفسها</p>
       </div>
       <div className="gline rv" />
-      <div className="pgrid">
-        {projects.map((p, i) => (
-          <div key={i} className={`pcard rv${p.delay ? ' ' + p.delay : ''}${p.lg ? ' lg' : ''}`}>
-            <div className="pcard-ov"><span className="pcard-ov-txt">View Project</span></div>
-            <span className={`badge ${p.badgeClass}`}>{p.badge}</span>
-            <div className="p-en">{p.en}</div>
-            <div className="p-ar">{p.ar}</div>
-            <div className="p-loc">{p.loc}</div>
-            <div className="p-yr">{p.yr}</div>
-            <div className="p-desc">{p.desc}</div>
-            {p.lic && <div className="p-lic">{p.lic}</div>}
-          </div>
-        ))}
+
+      <div
+        ref={wrapRef}
+        className={`proj-wrap${expanded ? '' : ' collapsed'}`}
+        style={expanded ? { maxHeight: fullHeight + 'px' } : undefined}
+      >
+        <div className="pgrid">
+          {projects.map((p, i) => (
+            <div key={i} className={`pcard rv${p.delay ? ' ' + p.delay : ''}${p.lg ? ' lg' : ''}`}>
+              <div className="pcard-ov"><span className="pcard-ov-txt">View Project</span></div>
+              <span className={`badge ${p.badgeClass}`}>{p.badge}</span>
+              <div className="p-en">{p.en}</div>
+              <div className="p-ar">{p.ar}</div>
+              <div className="p-loc">{p.loc}</div>
+              <div className="p-yr">{p.yr}</div>
+              <div className="p-desc">{p.desc}</div>
+              {p.lic && <div className="p-lic">{p.lic}</div>}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="show-more-wrap">
+        <button ref={btnRef} className="btn-toggle" onClick={handleToggle}>
+          <span>{expanded ? 'SHOW LESS' : 'VIEW ALL PROJECTS'}</span>
+        </button>
       </div>
     </section>
   )
