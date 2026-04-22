@@ -8,10 +8,8 @@ const encode = (filename: string) =>
 const items = [
   { id: '1',  img: encode('WhatsApp Image 2026-04-21 at 4.58.25 PM (1).jpeg'), height: 800  },
   { id: '2',  img: encode('WhatsApp Image 2026-04-21 at 4.58.25 PM.jpeg'),     height: 960  },
-  { id: '3',  img: encode('WhatsApp Image 2026-04-21 at 4.58.26 PM (1).jpeg'), height: 700  },
   { id: '4',  img: encode('WhatsApp Image 2026-04-21 at 4.58.26 PM (2).jpeg'), height: 1000 },
   { id: '5',  img: encode('WhatsApp Image 2026-04-21 at 4.58.26 PM (3).jpeg'), height: 760  },
-  { id: '6',  img: encode('WhatsApp Image 2026-04-21 at 4.58.26 PM.jpeg'),     height: 860  },
   { id: '7',  img: encode('WhatsApp Image 2026-04-21 at 7.30.56 PM (1).jpeg'), height: 720  },
   { id: '8',  img: encode('WhatsApp Image 2026-04-21 at 7.30.56 PM (2).jpeg'), height: 900  },
   { id: '9',  img: encode('WhatsApp Image 2026-04-21 at 7.30.56 PM (3).jpeg'), height: 780  },

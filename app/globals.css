@@ -346,6 +346,24 @@ footer{background:#050505;border-top:1px solid #151515;padding:22px 64px;display
 .wa-btn:hover{transform:translateZ(0) scale(1.1);box-shadow:0 8px 32px rgba(0,0,0,.45)}
 .wa-btn:hover::after{animation:none;opacity:0}
 
+/* ── SCROLL TO TOP ── */
+.scroll-top-btn{
+  position:fixed;bottom:28px;right:28px;z-index:9000;
+  width:46px;height:46px;border-radius:50%;background:var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(0,0,0,.35);
+  transition:transform .3s ease,box-shadow .3s ease,opacity .4s ease,visibility .4s;
+  cursor:none;border:none;outline:none;
+  opacity:0;visibility:hidden;transform:translateY(20px) translateZ(0);
+}
+.scroll-top-btn.visible{
+  opacity:1;visibility:visible;transform:translateY(0) translateZ(0);
+}
+.scroll-top-btn:hover{
+  transform:translateY(-5px) translateZ(0);box-shadow:0 8px 32px rgba(201,168,76,.45);
+  background:var(--gold-light);
+}
+
 /* ── INTERIOR FIT-OUT ── */
 /* filter:drop-shadow is GPU-composited; text-shadow forces a repaint every frame */
 @keyframes textGoldGlow{

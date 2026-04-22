@@ -64,14 +64,14 @@ export default function InteriorSection() {
       {/* Arabic tagline */}
       <div className="interior-tagline-wrap rv d1">
         <p className="interior-tagline rv d1">
-          كل تفصيلة في مكانها — صيانة متكاملة على مدار الساعة
+          كل تفصيلة بنهتم بيها — صيانة متكاملة على مدار الساعة
         </p>
       </div>
 
       {/* Short description */}
       <p className="interior-desc rv d2">
         نوفر خدمة تشطيب شاملة لشقتك من الألف إلى الياء، بيد فريق متخصص وخبرة تمتد لأكثر من ثلاثة عقود.
-        صنايعيتنا حاضرون في أي وقت، لأي تعديل، لأي إصلاح — لأن بيتك يستحق الأفضل دائماً.
+        مهندسونا حاضرون في أي وقت، لأي تعديل، لأي إصلاح — لأن بيتك يستحق الأفضل دائماً.
       </p>
 
       {/* Services grid */}
